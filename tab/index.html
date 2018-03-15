@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="欢迎来到涛哥BLOG">
 <meta property="og:description" content="Vue.js中除了数据驱动操作DOM之外，还有一个同样重要的概念：组件。当下的前端开发愈发趋向模块化、组件化，为了冗余代码的减少，重用性、复用性的提高，进而来提高开发效率，所以需要将HTML、CSS、JS等进行封装，形成独立的组件或模块，功能上也大大加强。 当然，想要使用组件，必须要先进行注册，类似于JavaScript中想要使用某一个变量，就必须事先声明。组件名称一般是自定义，建议使用-来连接，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-15T07:33:43.443Z">
+<meta property="og:updated_time" content="2018-03-15T07:37:46.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue.js动态组件打造Tab选项卡">
 <meta name="twitter:description" content="Vue.js中除了数据驱动操作DOM之外，还有一个同样重要的概念：组件。当下的前端开发愈发趋向模块化、组件化，为了冗余代码的减少，重用性、复用性的提高，进而来提高开发效率，所以需要将HTML、CSS、JS等进行封装，形成独立的组件或模块，功能上也大大加强。 当然，想要使用组件，必须要先进行注册，类似于JavaScript中想要使用某一个变量，就必须事先声明。组件名称一般是自定义，建议使用-来连接，">
@@ -331,45 +331,16 @@
 <p>说到组件，就不得不说组件之间的通信，包括父组件与子组件的通信、子组件与父组件的通信、兄弟组件的通信。</p>
 <font size="5">父组件与子组件的通信？</font>
 
-<p>父组件与子组件的通信，需要使用属性来进行传递。在父组件中，通过<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;font size = 5&gt;子组件与父组件的通信？&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">子组件与父组件的通信中，需要用到```$on```来监听事件，```$emit```来发射或触发事件，用```$broadcast```来广播事件。</span><br><span class="line"></span><br><span class="line">&lt;font size = 5&gt;兄弟组件的通信？&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">一般而言，兄弟组件通信比较繁琐，需要用到一个专门的状态管理模式-vuex。</span><br><span class="line"></span><br><span class="line">温馨提示：因为此文并不涉及到兄弟组件通信，所以之后会单独成文介绍vuex。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Tab选项卡代码如下：</span><br></pre></td></tr></table></figure></p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-&lt;head&gt;
-    &lt;title&gt;Tab选项卡&lt;/title&gt;
-    &lt;script src=&quot;https://cdn.bootcss.com/vue/2.5.15/vue.min.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&apos;app&apos;&gt;
-        &lt;button type=&apos;button&apos; @click=&quot;first=&apos;my-current&apos;&quot;&gt;第1项&lt;/button&gt;
-        &lt;button type=&apos;button&apos; @click=&quot;first=&apos;my-second&apos;&quot;&gt;第2项&lt;/button&gt;
-        &lt;button type=&apos;button&apos; @click=&quot;first=&apos;my-third&apos;&quot;&gt;第3项&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-        &lt;component :is=&apos;first&apos;&gt;&lt;/component&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        new Vue({
-            el:&apos;#app&apos;,
-            data:{
-                first: &apos;my-current&apos;
-                },
-            components:{
-                &apos;my-current&apos;:{
-                    template:&apos;&lt;div&gt;&lt;p&gt;我是Tab选项卡的第1项&lt;/p&gt;&lt;/div&gt;&apos;,
-                    },
-                &apos;my-second&apos;:{
-                    template:&apos;&lt;div&gt;&lt;p&gt;我是Tab选项卡的第2项&lt;/p&gt;&lt;/div&gt;&apos;
-                    },
-                &apos;my-third&apos;:{
-                    template:&apos;&lt;div&gt;&lt;p&gt;我是Tab选项卡的第3项&lt;/p&gt;&lt;/div&gt;&apos;
-                    },
-                }
-            });
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>```</p>
+<p>父组件与子组件的通信，需要使用属性来进行传递。在父组件中，通过v-bind绑定自定义属性，而在子组件中，需要接收父组件传递过来的属性，这时就需要用到props。</p>
+<font size="5">子组件与父组件的通信？</font>
+
+<p>子组件与父组件的通信中，需要用到$on来监听事件，$emit来发射或触发事件，用$broadcast来广播事件。</p>
+<font size="5">兄弟组件的通信？</font>
+
+<p>一般而言，兄弟组件通信比较繁琐，需要用到一个专门的状态管理模式-vuex。</p>
+<p>温馨提示：因为此文并不涉及到兄弟组件通信，所以之后会单独成文介绍vuex。</p>
+<p>Tab选项卡代码如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Tab选项卡<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.5.15/vue.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'app'</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">'button'</span> @<span class="attr">click</span>=<span class="string">"first='my-current'"</span>&gt;</span>第1项<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">'button'</span> @<span class="attr">click</span>=<span class="string">"first='my-second'"</span>&gt;</span>第2项<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">'button'</span> @<span class="attr">click</span>=<span class="string">"first='my-third'"</span>&gt;</span>第3项<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">'first'</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">		<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">			el:<span class="string">'#app'</span>,</span></span><br><span class="line"><span class="undefined">			data:&#123;</span></span><br><span class="line"><span class="actionscript">				first: <span class="string">'my-current'</span></span></span><br><span class="line"><span class="undefined">				&#125;,</span></span><br><span class="line"><span class="undefined">			components:&#123;</span></span><br><span class="line"><span class="actionscript">				<span class="string">'my-current'</span>:&#123;</span></span><br><span class="line"><span class="handlebars"><span class="xml">					template:'<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是Tab选项卡的第1项<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>',</span></span></span><br><span class="line"><span class="undefined">					&#125;,</span></span><br><span class="line"><span class="actionscript">				<span class="string">'my-second'</span>:&#123;</span></span><br><span class="line"><span class="handlebars"><span class="xml">					template:'<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是Tab选项卡的第2项<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>'</span></span></span><br><span class="line"><span class="undefined">					&#125;,</span></span><br><span class="line"><span class="actionscript">				<span class="string">'my-third'</span>:&#123;</span></span><br><span class="line"><span class="handlebars"><span class="xml">					template:'<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是Tab选项卡的第3项<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>'</span></span></span><br><span class="line"><span class="undefined">					&#125;,</span></span><br><span class="line"><span class="undefined">				&#125;</span></span><br><span class="line"><span class="undefined">			&#125;);</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>上述代码中，Vue实例data中第一个选项卡的名字是my-current，三个组件分别是my-current、my-second、my-third。而在视图中，利用按钮绑定点击事件，is属性来挂在组件。</p>
 <p>温馨提示：组件之间通信一般需要配合template模板来使用，并且template模板中需要有根标签来包裹内容；如果没有，则视图中无法渲染，是空白状态。</p>
 
@@ -585,7 +556,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共9.3k字</span>
+  <span class="post-count">博客全站共9.4k字</span>
 </div>
         
 
