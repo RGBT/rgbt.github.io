@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="2018已经悄悄来临，一直想要一个自己的博客，之前买了域名和服务器，经过一系列的折腾，终于到了最后工局审核阶段(大概需要15~20天)，而在这段期间，利用GitHub搭建了Hexo博客，用来记录、分享自己在学习前端技术上的知识、心得，在此附上我的GitHub地址: https://rgbt.github.io ,拖了半年多的博客终于上线了，本文是我基于实操经验，即便你没有任何编程基础，或者说是一个">
+<meta name="description" content="Vue.js中除了数据驱动操作DOM之外，还有一个同样重要的概念：组件。当下的前端开发愈发趋向模块化、组件化，为了冗余代码的减少，重用性、复用性的提高，进而来提高开发效率，所以需要将HTML、CSS、JS等进行封装，形成独立的组件或模块，功能上也大大加强。 当然，想要使用组件，必须要先进行注册，类似于JavaScript中想要使用某一个变量，就必须事先声明。组件名称一般是自定义，建议使用-来连接，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【实战】Windows系统下利用GitHub+Hexo快速搭建个人博客[上]">
-<meta property="og:url" content="http://rgbt.com/hexo/index.html">
+<meta property="og:title" content="Vue.js动态组件打造Tab选项卡">
+<meta property="og:url" content="http://rgbt.com/tab/index.html">
 <meta property="og:site_name" content="欢迎来到涛哥BLOG">
-<meta property="og:description" content="2018已经悄悄来临，一直想要一个自己的博客，之前买了域名和服务器，经过一系列的折腾，终于到了最后工局审核阶段(大概需要15~20天)，而在这段期间，利用GitHub搭建了Hexo博客，用来记录、分享自己在学习前端技术上的知识、心得，在此附上我的GitHub地址: https://rgbt.github.io ,拖了半年多的博客终于上线了，本文是我基于实操经验，即便你没有任何编程基础，或者说是一个">
+<meta property="og:description" content="Vue.js中除了数据驱动操作DOM之外，还有一个同样重要的概念：组件。当下的前端开发愈发趋向模块化、组件化，为了冗余代码的减少，重用性、复用性的提高，进而来提高开发效率，所以需要将HTML、CSS、JS等进行封装，形成独立的组件或模块，功能上也大大加强。 当然，想要使用组件，必须要先进行注册，类似于JavaScript中想要使用某一个变量，就必须事先声明。组件名称一般是自定义，建议使用-来连接，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-18T14:02:09.441Z">
+<meta property="og:updated_time" content="2018-03-15T07:33:43.443Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【实战】Windows系统下利用GitHub+Hexo快速搭建个人博客[上]">
-<meta name="twitter:description" content="2018已经悄悄来临，一直想要一个自己的博客，之前买了域名和服务器，经过一系列的折腾，终于到了最后工局审核阶段(大概需要15~20天)，而在这段期间，利用GitHub搭建了Hexo博客，用来记录、分享自己在学习前端技术上的知识、心得，在此附上我的GitHub地址: https://rgbt.github.io ,拖了半年多的博客终于上线了，本文是我基于实操经验，即便你没有任何编程基础，或者说是一个">
+<meta name="twitter:title" content="Vue.js动态组件打造Tab选项卡">
+<meta name="twitter:description" content="Vue.js中除了数据驱动操作DOM之外，还有一个同样重要的概念：组件。当下的前端开发愈发趋向模块化、组件化，为了冗余代码的减少，重用性、复用性的提高，进而来提高开发效率，所以需要将HTML、CSS、JS等进行封装，形成独立的组件或模块，功能上也大大加强。 当然，想要使用组件，必须要先进行注册，类似于JavaScript中想要使用某一个变量，就必须事先声明。组件名称一般是自定义，建议使用-来连接，">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://rgbt.com/hexo/"/>
+  <link rel="canonical" href="http://rgbt.com/tab/"/>
 
 
 
 
 
-  <title>【实战】Windows系统下利用GitHub+Hexo快速搭建个人博客[上] | 欢迎来到涛哥BLOG</title>
+  <title>Vue.js动态组件打造Tab选项卡 | 欢迎来到涛哥BLOG</title>
   
 
 
@@ -254,7 +254,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://rgbt.com/hexo/">
+    <link itemprop="mainEntityOfPage" href="http://rgbt.com/tab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="guobingtao">
@@ -271,7 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">【实战】Windows系统下利用GitHub+Hexo快速搭建个人博客[上]</h1>
+          <h1 class="post-title" itemprop="name headline">Vue.js动态组件打造Tab选项卡</h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-15T12:28:36+08:00">
-                2018-01-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T14:30:51+08:00">
+                2018-03-15
               </time>
             
 
@@ -326,38 +326,52 @@
       
 
       
-        <p>2018已经悄悄来临，一直想要一个自己的博客，之前买了域名和服务器，经过一系列的折腾，终于到了最后工局审核阶段(大概需要15~20天)，而在这段期间，利用GitHub搭建了Hexo博客，用来记录、分享自己在学习前端技术上的知识、心得，在此附上我的GitHub地址: <a href="https://rgbt.github.io" target="_blank" rel="noopener">https://rgbt.github.io</a> ,拖了半年多的博客终于上线了，本文是我基于实操经验，即便你没有任何编程基础，或者说是一个技术小白，按照本文的步骤，你也可以快速搭建属于你的博客。<br>                                                                <a id="more"></a></p>
-<p>温馨提示：本文教程是基于Windows系统用户，Mac用户可耐心在线等:)</p>
-<font size="5">什么是Hexo?</font>
+        <p>Vue.js中除了数据驱动操作DOM之外，还有一个同样重要的概念：组件。当下的前端开发愈发趋向模块化、组件化，为了冗余代码的减少，重用性、复用性的提高，进而来提高开发效率，所以需要将HTML、CSS、JS等进行封装，形成独立的组件或模块，功能上也大大加强。</p>
+<p>当然，想要使用组件，必须要先进行注册，类似于JavaScript中想要使用某一个变量，就必须事先声明。组件名称一般是自定义，建议使用-来连接，以示区别。</p>
+<p>说到组件，就不得不说组件之间的通信，包括父组件与子组件的通信、子组件与父组件的通信、兄弟组件的通信。</p>
+<font size="5">父组件与子组件的通信？</font>
 
-<p>官方解释：Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<font size="5">Hexo官方文档：</font>
-
-<p>英文文档地址：<a href="https://hexo.io/docs/index.html" target="_blank" rel="noopener">https://hexo.io/docs/index.html</a><br>中文文档地址：<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/index.html</a></p>
-<font size="5">安装软件和注册账号?</font>
-
-<p>1、Node.js  下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a> (选择Windows版本即可)<br>2、GitBash  下载地址：<a href="http://gitforwindows.org/" target="_blank" rel="noopener">http://gitforwindows.org/</a><br>3、注册GitHub账号  注册地址：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p>
-<p>准备工作差不多了，是时候开始表演真正的技术啦！:)</p>
-<font size="5">Node.js安装</font>
-
-<p>Node.js的安装和GitBash的安装基本都是一路next下去(傻瓜式安装)。接着验证软件是否安装成功，可按键盘上的Win+R(或者鼠标“开始菜单”点击“运行”)，在”运行”窗口输入cmd后回车，即可打开命令窗口。接着，在命令窗口内输入<code>node -v</code> 后回车，即可看到安装的node.js版本。此时，在命令窗口再次输入<code>npm -v</code>，来验证npm是否安装。最后输入<code>git --version</code>验证git是否安装成功。</p>
-<font size="5">注册GitHub账号</font>
-
-<p>进入GitHub官网，用户名、密码、邮箱进行注册，之后按步骤提示操作，其他默认即可<br>，随后点击continue，之后再点击submit。注册完成之后，官方会给你注册时使用的邮箱发一封激活邮件，按照提示，点击激活即可。</p>
-<p>登录账号之后，点击头像旁边的’+’号，选择下面的’New repository’并点击，新创建一个版本库。接着，在Repository name下面填写下yourname.github.io(yourname与你的注册用户名一致，这样yourname.github.io这个就是你博客的域名了)，然后点击下面的绿色按钮，创建这个仓库。到此，你的github设置基本就完成了。</p>
-<p>接下来，在你电脑合适的盘符下创建一个新的文件夹(推荐文件夹名字最好使用英文)，用来存放你的博客系统。随后，进入这个文件夹，在空白处右键点击，出现Git Bash Here，选中它，会打开命令行的弹窗口。接着需要npm安装hexo，在此推荐使用国内的淘宝镜像(cnpm)，地址：<a href="http://npm.taobao.org/" target="_blank" rel="noopener">http://npm.taobao.org/</a> ，在命令窗口输入<br><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code>回车，之后等待安装完毕即可。</p>
-<p>再接下来是安装hexo系统，在刚才的命令窗口接着输入<code>cnpm install -g hexo-cli</code>，回车，等待安装完毕。随后再输入<code>cnpm install hexo --save</code>，回车，等待安装，到目前为止，hexo安装算是结束了。验证hexo是否安装成功，命令窗口输入<code>hexo -v</code>，回车。</p>
-<font size="5">本地测试Hexo</font>
-
-<p>1、打开Git Bash，在命令窗口输入<code>hexo init</code>，回车，初始化hexo。(第一次初始化可能会失败，如果失败，可多尝试几次)</p>
-<p>2、接着输入命令<code>cnpm install</code>，回车，安装生成器。</p>
-<p>3、生成器安装完毕后，输入<code>hexo s -g</code>，回车，测试hexo系统。如果出现以下代码Hexo is running at <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>. Press Ctrl + C to stop，表示测试成功。</p>
-<p>特别提示：hexo初次本地测试，端口是4000。</p>
-<p>4、最后打开浏览器，输入 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，回车，即可看到hexo测试成功。</p>
-<p>特别提示：想要停止运行，在命令窗口按Ctrl + C即可停止。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=32507038&auto=1&height=66"></iframe>
-
-
+<p>父组件与子组件的通信，需要使用属性来进行传递。在父组件中，通过<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;font size = 5&gt;子组件与父组件的通信？&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">子组件与父组件的通信中，需要用到```$on```来监听事件，```$emit```来发射或触发事件，用```$broadcast```来广播事件。</span><br><span class="line"></span><br><span class="line">&lt;font size = 5&gt;兄弟组件的通信？&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">一般而言，兄弟组件通信比较繁琐，需要用到一个专门的状态管理模式-vuex。</span><br><span class="line"></span><br><span class="line">温馨提示：因为此文并不涉及到兄弟组件通信，所以之后会单独成文介绍vuex。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Tab选项卡代码如下：</span><br></pre></td></tr></table></figure></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;Tab选项卡&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.bootcss.com/vue/2.5.15/vue.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&apos;app&apos;&gt;
+        &lt;button type=&apos;button&apos; @click=&quot;first=&apos;my-current&apos;&quot;&gt;第1项&lt;/button&gt;
+        &lt;button type=&apos;button&apos; @click=&quot;first=&apos;my-second&apos;&quot;&gt;第2项&lt;/button&gt;
+        &lt;button type=&apos;button&apos; @click=&quot;first=&apos;my-third&apos;&quot;&gt;第3项&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;component :is=&apos;first&apos;&gt;&lt;/component&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        new Vue({
+            el:&apos;#app&apos;,
+            data:{
+                first: &apos;my-current&apos;
+                },
+            components:{
+                &apos;my-current&apos;:{
+                    template:&apos;&lt;div&gt;&lt;p&gt;我是Tab选项卡的第1项&lt;/p&gt;&lt;/div&gt;&apos;,
+                    },
+                &apos;my-second&apos;:{
+                    template:&apos;&lt;div&gt;&lt;p&gt;我是Tab选项卡的第2项&lt;/p&gt;&lt;/div&gt;&apos;
+                    },
+                &apos;my-third&apos;:{
+                    template:&apos;&lt;div&gt;&lt;p&gt;我是Tab选项卡的第3项&lt;/p&gt;&lt;/div&gt;&apos;
+                    },
+                }
+            });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>```</p>
+<p>上述代码中，Vue实例data中第一个选项卡的名字是my-current，三个组件分别是my-current、my-second、my-third。而在视图中，利用按钮绑定点击事件，is属性来挂在组件。</p>
+<p>温馨提示：组件之间通信一般需要配合template模板来使用，并且template模板中需要有根标签来包裹内容；如果没有，则视图中无法渲染，是空白状态。</p>
 
       
     </div>
@@ -378,7 +392,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://rgbt.com/hexo/" title="【实战】Windows系统下利用GitHub+Hexo快速搭建个人博客[上]">http://rgbt.com/hexo/</a>
+    <a href="http://rgbt.com/tab/" title="Vue.js动态组件打造Tab选项卡">http://rgbt.com/tab/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -423,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/vue.js/" rel="next" title="【小练习】Vue.js计算属性、指令等实现购物车功能">
-                <i class="fa fa-chevron-left"></i> 【小练习】Vue.js计算属性、指令等实现购物车功能
+              <a href="/ajax/" rel="next" title="Ajax跨域请求豆瓣电影Top250">
+                <i class="fa fa-chevron-left"></i> Ajax跨域请求豆瓣电影Top250
               </a>
             
           </div>
@@ -432,10 +446,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/gitHub/" rel="prev" title="【实战】Windows系统下利用GitHub+Hexo快速搭建个人博客[下]">
-                【实战】Windows系统下利用GitHub+Hexo快速搭建个人博客[下] <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
